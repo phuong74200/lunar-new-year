@@ -10,7 +10,7 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     // app.stage.addChild(text);
 
     let blossoms = {};
-    let mult = 10;
+    let mult = 50;
 
     let now = performance.now();
     let now_2 = performance.now();
@@ -147,14 +147,15 @@ const hScroll = () => {
     const slides = document.getElementsByClassName('h-scroll');
 
     [...slides].forEach((elm, index) => {
-        elm.style.transform = `translateX(-${(index + 1) * 100}%)`;
-        console.log(`translateX(-${(index + 1) * 100}%)`)
+        elm.style.transform = `translateX(-${(index) * 100}%)`;
     })
 
     const page = document.getElementById('page')
 
-    const scrollPage = (e) => {
-        vertical += e.deltaY / 100;
+    const work = () => {
+        if (vertical <= 0) {
+            vertical = 0;
+        }
         const anim = page.animate([
             { transform: `translateX(${vertical * 100}%)` }
         ], {
@@ -163,18 +164,32 @@ const hScroll = () => {
         });
         anim.onfinish = () => {
             ticking = false;
-            if (vertical > slides.length) {
+            if (vertical > slides.length - 2) {
                 vertical = 0;
                 page.animate([
-                    { transform: `translateX(${vertical * 100}%)` }
+                    { transform: `translateX(0%)` }
                 ], {
+                    duration: 0,
                     fill: 'forwards',
                 });
-            } else if (vertical <= 0) {
-                vertical = 0;
             }
         }
     }
+
+    const scrollPage = (e) => {
+        vertical += e.deltaY / 100;
+        work();
+    }
+
+    document.getElementById('arrowLeft').addEventListener('mouseup', (e) => {
+        vertical += 1;
+        work();
+    })
+
+    document.getElementById('arrowRight').addEventListener('mouseup', (e) => {
+        vertical -= 1;
+        work();
+    })
 
     document.addEventListener('mousewheel', function (e) {
         if (!ticking) {
@@ -182,6 +197,56 @@ const hScroll = () => {
             ticking = true;
         }
     });
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+        return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    };
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > 0) {
+                /* right swipe */
+                vertical -= 1;
+                work();
+            } else {
+                /* left swipe */
+                vertical += 1;
+                work();
+            }
+        } else {
+            if (yDiff > 0) {
+                /* down swipe */
+            } else {
+                /* up swipe */
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    };
 }
 
 hScroll();

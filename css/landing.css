@@ -14,10 +14,6 @@
     left: 0;
 }
 
-.h-scroll:nth-child(1) {
-    background: red;
-}
-
 .h-scroll:nth-child(2) {
     background: green;
 }
@@ -208,7 +204,7 @@
 }
 
 .blossom-1 {
-    width: 350px;
+    width: 400px;
     left: 0;
     top: 30vh;
     z-index: 5;
@@ -304,6 +300,12 @@
 }
 
 @media (max-width: 720px) {
+    #arrowAnim {
+        zoom: 0.5;
+    }
+    .blossom-1 {
+        width: 300px;
+    }
     .fan {
         z-index: 0;
         transform: translate(-50%, 80%) scale(2);
@@ -339,5 +341,105 @@
     .fence img {
         object-fit: contain;
         max-height: 100%;
+    }
+}
+
+.slide-btn {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100vh;
+    z-index: 20;
+    transition: all 0.1s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.slide-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide-btn-left {
+    left: 0;
+    top: 0;
+}
+
+.slide-btn-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+#arrowAnim {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    border: 4px solid;
+    border-color: #f2f2f2 transparent transparent #f2f2f2;
+    transform: rotate(-45deg);
+}
+
+.arrowSliding {
+    position: absolute;
+    -webkit-animation: slide 4s linear infinite;
+    animation: slide 4s linear infinite;
+}
+
+.delay1 {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.delay2 {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.delay3 {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(9px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-9px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+}
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(9px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-9px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-15px);
     }
 }

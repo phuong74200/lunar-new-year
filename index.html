@@ -10,6 +10,8 @@
         <title>Landing</title>
         <link rel="stylesheet" href="./css/style.css" />
         <link rel="stylesheet" href="./css/landing.css" />
+
+        <link rel="stylesheet" href="./css/section.countdown.css" />
     </head>
     <body>
         <div class="landing">
@@ -74,15 +76,61 @@
             <div class="flower-stick stick-1">
                 <img src="assets/Untitled-1-10.png" alt="lantern" />
             </div>
+            <div class="slide-btn slide-btn-left" id="arrowLeft">
+                <div id="arrowAnim">
+                    <div class="arrowSliding">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay1">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay2">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay3">
+                        <div class="arrow"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-btn slide-btn-right" id="arrowRight">
+                <div id="arrowAnim">
+                    <div class="arrowSliding">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay1">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay2">
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay3">
+                        <div class="arrow"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="page-container" id="page">
-            <div class="h-scroll bg-green"></div>
-            <div class="h-scroll bg-red"></div>
-            <div class="h-scroll bg-blue"></div>
-            <div class="h-scroll bg-green"></div>
+            <div class="h-scroll count-down">
+                <div class="container">
+                    <div id="countdown">
+                        <ul>
+                            <li><span id="days"></span>days</li>
+                            <li><span id="hours"></span>Hours</li>
+                            <li><span id="minutes"></span>Minutes</li>
+                            <li><span id="seconds"></span>Seconds</li>
+                        </ul>
+                    </div>
+                    <h1 id="headline">to the Lunar New Year</h1>
+                </div>
+            </div>
+            <div class="h-scroll"></div>
+            <div class="h-scroll"></div>
+            <div class="h-scroll"></div>
+            <div class="h-scroll"></div>
         </div>
     </body>
     <script src="./js/pixi.min.js"></script>
     <script src="./js/pixi-layers.js"></script>
     <script src="./js/landing.js"></script>
+    <script src="./js/section.countdown.js"></script>
 </html>
