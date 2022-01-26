@@ -64,6 +64,8 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
                 blossom.filters = [
                     new PIXI.filters.BlurFilter(size / 20),
                 ];
+                sx *= 4;
+                sy *= 4;
             }
 
             blossom.anchor.set(0.5)
@@ -136,3 +138,50 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     app.ticker.add(update);
 })();
+
+const hScroll = () => {
+    let ticking = false;
+
+    let vertical = 0;
+
+    const slides = document.getElementsByClassName('h-scroll');
+
+    [...slides].forEach((elm, index) => {
+        elm.style.transform = `translateX(-${(index + 1) * 100}%)`;
+        console.log(`translateX(-${(index + 1) * 100}%)`)
+    })
+
+    const page = document.getElementById('page')
+
+    const scrollPage = (e) => {
+        vertical += e.deltaY / 100;
+        const anim = page.animate([
+            { transform: `translateX(${vertical * 100}%)` }
+        ], {
+            duration: 300,
+            fill: 'forwards',
+        });
+        anim.onfinish = () => {
+            ticking = false;
+            if (vertical > slides.length) {
+                vertical = 0;
+                page.animate([
+                    { transform: `translateX(${vertical * 100}%)` }
+                ], {
+                    fill: 'forwards',
+                });
+            } else if (vertical <= 0) {
+                vertical = 0;
+            }
+        }
+    }
+
+    document.addEventListener('mousewheel', function (e) {
+        if (!ticking) {
+            scrollPage(e);
+            ticking = true;
+        }
+    });
+}
+
+hScroll();
