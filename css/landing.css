@@ -1,311 +1,311 @@
 .landing {
-    width: 100vw;
-    height: 100vh;
-    padding: 30px;
-    box-sizing: border-box;
-    overflow: hidden;
-    background: radial-gradient(
-        circle,
-        rgba(245, 172, 39, 1) 0%,
-        rgba(204, 35, 42, 1) 46%
-    );
-    user-select: none;
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: radial-gradient(
+    circle,
+    rgba(245, 172, 39, 1) 0%,
+    rgba(204, 35, 42, 1) 46%
+  );
+  user-select: none;
 }
 
 .round {
-    width: 100%;
-    height: 100%;
-    border: 6px solid #ffd84b;
-    box-sizing: border-box;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  border: 6px solid #ffd84b;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .fence {
-    position: absolute;
+  position: absolute;
 }
 
 .fence-t-l {
-    top: 8px;
-    left: 8px;
+  top: 8px;
+  left: 8px;
 }
 
 .fence-t-r {
-    top: 8px;
-    right: 8px;
+  top: 8px;
+  right: 8px;
 }
 
 .fence-b-l {
-    bottom: 8px;
-    left: 8px;
+  bottom: 8px;
+  left: 8px;
 }
 
 .fence-b-r {
-    bottom: 8px;
-    right: 8px;
+  bottom: 8px;
+  right: 8px;
 }
 
 .bottom-cloud {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    justify-content: space-between;
-    gap: 100px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
 }
 
 .cloud {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .cloud img {
-    object-fit: contain;
-    max-height: 100%;
+  object-fit: contain;
+  max-height: 100%;
 }
 
 .r-circle-cloud {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translateY(70%) scaleX(-1);
-    animation: moving 5s infinite linear;
-    z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(70%) scaleX(-1);
+  animation: moving 5s infinite linear;
+  z-index: 1;
 }
 
 .r-big-cloud {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scale(1.5) translateX(-30%) translateY(20%);
-    z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scale(1.5) translateX(-30%) translateY(20%);
+  z-index: 2;
 }
 
 .fan {
-    width: auto;
-    max-height: 40vh;
-    transform: translate(-150%, 80%) scale(2);
-    position: absolute;
-    z-index: 1;
-    animation: moving2 5s infinite linear;
+  width: auto;
+  max-height: 40vh;
+  transform: translate(-150%, 80%) scale(2);
+  position: absolute;
+  z-index: 1;
+  animation: moving2 5s infinite linear;
 }
 
 .flipX {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .lantern--big {
-    width: auto;
-    position: absolute;
+  width: auto;
+  position: absolute;
 }
 
 .lantern--big img {
-    object-fit: contain;
-    max-height: 100%;
-    animation: glowing 10s infinite;
+  object-fit: contain;
+  max-height: 100%;
+  animation: glowing 10s infinite;
 }
 
 @keyframes glowing {
-    0% {
-        filter: drop-shadow(0px 4px 24px #ffd84b);
-    }
+  0% {
+    filter: drop-shadow(0px 4px 24px #ffd84b);
+  }
 
-    50% {
-        filter: drop-shadow(0px 4px 12px #ffd84b);
-    }
+  50% {
+    filter: drop-shadow(0px 4px 12px #ffd84b);
+  }
 
-    100% {
-        filter: drop-shadow(0px 4px 24px #ffd84b);
-    }
+  100% {
+    filter: drop-shadow(0px 4px 24px #ffd84b);
+  }
 }
 
 .lantern-0 {
-    height: 40vh;
-    right: 0;
-    top: 0;
-    transform-origin: top center;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-    animation-delay: 0.5s;
-    transform: rotate(6deg);
-    z-index: 3;
+  height: 40vh;
+  right: 0;
+  top: 0;
+  transform-origin: top center;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.5s;
+  transform: rotate(6deg);
+  z-index: 3;
 }
 
 .lantern-1 {
-    height: 20vh;
-    right: 350px;
-    top: 34px;
-    transform-origin: top center;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-    animation-delay: 0.5s;
-    transform: rotate(6deg);
+  height: 20vh;
+  right: 350px;
+  top: 34px;
+  transform-origin: top center;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.5s;
+  transform: rotate(6deg);
 }
 
 .lantern-2 {
-    height: 20vh;
-    right: 200px;
-    top: 0;
-    transform-origin: top center;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-    animation-delay: 0.5s;
-    transform: rotate(6deg);
+  height: 20vh;
+  right: 200px;
+  top: 0;
+  transform-origin: top center;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.5s;
+  transform: rotate(6deg);
 }
 
 .lantern-3 {
-    height: 20vh;
-    right: 450px;
-    top: 34px;
-    transform-origin: top center;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-    animation-delay: 0.5s;
-    transform: rotate(6deg);
+  height: 20vh;
+  right: 450px;
+  top: 34px;
+  transform-origin: top center;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.5s;
+  transform: rotate(6deg);
 }
 
 .blossom {
-    height: auto;
-    right: 200px;
-    top: 0;
-    right: 0;
-    width: 400px;
-    position: absolute;
-    z-index: 4;
+  height: auto;
+  right: 200px;
+  top: 0;
+  right: 0;
+  width: 400px;
+  position: absolute;
+  z-index: 4;
 }
 
 .blossom-1 {
-    width: 350px;
-    left: 0;
-    top: 30vh;
-    z-index: 2;
+  width: 350px;
+  left: 0;
+  top: 30vh;
+  z-index: 2;
 }
 
 .blossom img {
-    object-fit: contain;
-    max-width: 100%;
+  object-fit: contain;
+  max-width: 100%;
 }
 
 .flower-stick {
-    
 }
 
 @keyframes swinging {
-    0% {
-        -webkit-transform: rotate(6deg);
-        transform: rotate(6deg);
-    }
+  0% {
+    -webkit-transform: rotate(6deg);
+    transform: rotate(6deg);
+  }
 
-    50% {
-        -webkit-transform: rotate(-3deg);
-        transform: rotate(-3deg);
-    }
+  50% {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
 
-    100% {
-        -webkit-transform: rotate(6deg);
-        transform: rotate(6deg);
-    }
+  100% {
+    -webkit-transform: rotate(6deg);
+    transform: rotate(6deg);
+  }
 }
 
 @keyframes moving {
-    0% {
-        bottom: 0px;
-        right: 0px;
-    }
-    20% {
-        bottom: 10px;
-        right: 10px;
-    }
-    40% {
-        bottom: 0px;
-        right: 10px;
-    }
-    60% {
-        bottom: -10px;
-        right: 0px;
-    }
-    80% {
-        bottom: 0px;
-        right: -10px;
-    }
-    100% {
-        bottom: 0px;
-        right: 0px;
-    }
+  0% {
+    bottom: 0px;
+    right: 0px;
+  }
+  20% {
+    bottom: 10px;
+    right: 10px;
+  }
+  40% {
+    bottom: 0px;
+    right: 10px;
+  }
+  60% {
+    bottom: -10px;
+    right: 0px;
+  }
+  80% {
+    bottom: 0px;
+    right: -10px;
+  }
+  100% {
+    bottom: 0px;
+    right: 0px;
+  }
 }
 
 @keyframes moving2 {
-    0% {
-        bottom: 0px;
-        right: 0px;
-    }
-    20% {
-        bottom: -10px;
-        right: -10px;
-    }
-    40% {
-        bottom: 0px;
-        right: -10px;
-    }
-    60% {
-        bottom: 10px;
-        right: 0px;
-    }
-    80% {
-        bottom: 0px;
-        right: 10px;
-    }
-    100% {
-        bottom: 0px;
-        right: 0px;
-    }
+  0% {
+    bottom: 0px;
+    right: 0px;
+  }
+  20% {
+    bottom: -10px;
+    right: -10px;
+  }
+  40% {
+    bottom: 0px;
+    right: -10px;
+  }
+  60% {
+    bottom: 10px;
+    right: 0px;
+  }
+  80% {
+    bottom: 0px;
+    right: 10px;
+  }
+  100% {
+    bottom: 0px;
+    right: 0px;
+  }
 }
 
 @media (min-width: 2600px) {
-    .r-circle-cloud {
-        left: 0;
-    }
+  .r-circle-cloud {
+    left: 0;
+  }
 }
 
 @media (max-width: 992px) {
-    .fan {
-        z-index: 0;
-        transform: translate(-80%, 80%) scale(2);
-    }
+  .fan {
+    z-index: 0;
+    transform: translate(-80%, 80%) scale(2);
+  }
 }
 
 @media (max-width: 720px) {
-    .fan {
-        z-index: 0;
-        transform: translate(-50%, 80%) scale(2);
-    }
-    .r-circle-cloud {
-        z-index: 1;
-    }
-    .landing {
-        padding: 16px;
-    }
-    .lantern-1, .lantern-3 {
-        display: none;
-    }
+  .fan {
+    z-index: 0;
+    transform: translate(-50%, 80%) scale(2);
+  }
+  .r-circle-cloud {
+    z-index: 1;
+  }
+  .landing {
+    padding: 16px;
+  }
+  .lantern-1,
+  .lantern-3 {
+    display: none;
+  }
 }
 
 @media (max-width: 512px) {
-    .fence {
-        width: 40vw;
-    }
+  .fence {
+    width: 40vw;
+  }
 
-    .fence img {
-        object-fit: contain;
-        max-width: 100%;
-    }
+  .fence img {
+    object-fit: contain;
+    max-width: 100%;
+  }
 }
 
 @media (max-height: 400px) {
-    .fence {
-        height: 40vh;
-    }
+  .fence {
+    height: 40vh;
+  }
 
-    .fence img {
-        object-fit: contain;
-        max-height: 100%;
-    }
+  .fence img {
+    object-fit: contain;
+    max-height: 100%;
+  }
 }
