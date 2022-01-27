@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/landing.css" />
     <link rel="stylesheet" href="./css/fortune.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -63,33 +67,32 @@
         <div class="fortune-section">
             <div class="vase-wrapper">
                 <div class="vase">
-                    <div class="mouth"></div>
+                    <div class="mouth">
+                        <div class="tag-container">
+                            <div class="tag tag-1">
+                                <img src="./assets/pngwing.com.png">
+                            </div>
+                            <div class="tag tag-2">
+                                <img src="./assets/pngwing.com.png">
+                            </div>
+                            <div class="tag tag-3">
+                                <img src="./assets/pngwing.com.png">
+                            </div>
+                            <div class="tag tag-4">
+                                <img src="../assets/pngwing.com.png">
+                            </div>
+                            <div class="tag tag-5">
+                                <img src="../assets/pngwing.com.png">
+                            </div>
+                        </div>
+                    </div>
                     <div class="body"></div>
                     <div class="body-bottom">
                         <div class="body-circle"></div>
                     </div>
                     <div class="base"></div>
-
                     <div class="tiger">
                         <img src="./assets/tiger.png" alt="">
-                    </div>
-
-                    <div class="tag-container">
-                        <div class="tag tag-1">
-                            <img src="./assets/pngwing.com.png">
-                        </div>
-                        <div class="tag tag-2">
-                            <img src="./assets/pngwing.com.png">
-                        </div>
-                        <div class="tag tag-3">
-                            <img src="./assets/pngwing.com.png">
-                        </div>
-                        <div class="tag tag-4">
-                            <img src="../assets/pngwing.com.png">
-                        </div>
-                        <div class="tag tag-5">
-                            <img src="../assets/pngwing.com.png">
-                        </div>
                     </div>
                 </div>
                 <div class="shadow"></div>
@@ -101,7 +104,9 @@
                 </div>
                 <div class="banner-body">
                     <div class="banner-text">
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis placeat aspernatur
+                        <p class="banner-content"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                            placeat
+                            aspernatur
                             perferendis consequatur dignissimos quas, explicabo labore necessitatibus repudiandae magnam
                             aliquam maxime odio aliquid expedita dolorem. Commodi earum blanditiis nisi. Sed, iure et,
                             ea nemo nisi sit error harum odit quas, itaque nulla recusandae? Amet repellat consequuntur
@@ -115,16 +120,14 @@
             </div>
 
             <div class="inputs">
-                <input type="text" class="input--date" placeholder="DD" />
-                <span> / </span>
-                <input type="text" class="input--month" placeholder="MM" />
-                <span> / </span>
-                <input type="text" class="input--year" placeholder="YYYY" />
+                <div class="input-fields">
+                    <input type="text" class="input--date" placeholder="DD" />
+                    <input type="text" class="input--month" placeholder="MM" />
+                    <input type="text" class="input--year" placeholder="YYYY" />
+                </div>
                 <button class="button button-fortune">Take Fortune</button>
             </div>
-
         </div>
-
     </div>
 </body>
 <script src="./js/pixi.min.js"></script>

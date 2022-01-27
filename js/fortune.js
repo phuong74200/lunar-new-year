@@ -4,6 +4,8 @@
   const btnShowBanner = $('.button-fortune');
   const btnCloseBanner = $('.button-close');
   const banner = $('.banner');
+  const bannerContent = $('.banner-content');
+
   const vase = $('.vase');
   const vaseWrapper = $('.vase-wrapper');
   const tag = $('.tag-5');
@@ -11,6 +13,9 @@
   const inputDate = $('.input--date');
   const inputMonth = $('.input--month');
   const inputYear = $('.input--year');
+
+
+  const inputs = $('.inputs');
 
   const isValidDate = (day, month, year) => {
 
@@ -31,13 +36,14 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  const showBanner = () => {
+  const showBanner = (content = '') => {
+    bannerContent.textContent = content;
     banner.classList.add('show');
-  }
+    setTimeout(() => {
+      banner.classList.add('open');
+    }, 1000);
 
-
-  const openBanner = () => {
-    banner.classList.add('open');
+    inputs.classList.add('fade');
   }
 
 
@@ -51,10 +57,7 @@
     tag.classList.add('tag-active');
     vaseWrapper.classList.add('zoom-in');
     await timeOut(4000);
-    showBanner();
-    setTimeout(() => {
-      openBanner();
-    }, 1000);
+    showBanner('Hello');
   }
 
   const closeAll = () => {
@@ -62,6 +65,7 @@
     banner.classList.remove('open');
     tag.classList.remove('tag-active');
     vaseWrapper.classList.remove('zoom-in');
+    inputs.classList.remove('fade');
 
     inputDate.value = '';
     inputMonth.value = '';
@@ -77,7 +81,7 @@
       await shakeTag();
       await takeSentence();
     } else {
-      console.log("Invalid date");
+      showBanner('Invalid date. Enter again');
     };
   });
 
