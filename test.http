@@ -1,0 +1,15 @@
+###
+POST http://localhost:3000/api/wishes
+Content-type: application/json
+
+{
+    "message": "cac"
+}
+
+###
+POST http://localhost:3000/api/prophecies
+Content-type: Application/json 
+
+{
+    "date": "17/07/2006"
+}
