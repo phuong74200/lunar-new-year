@@ -14,6 +14,7 @@
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   transition: all 2s;
+  z-index: 999;
 }
 .zoom-in {
   transform: translate(-50%, -50%) scale(0.6);
@@ -336,28 +337,45 @@
 
 .banner-text {
   text-align: center;
-  width: 85%;
+  width: 86%;
   max-height: 70%;
   color: #ffd43b;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 2;
 }
-.banner-text p {
-  font-size: 18px;
+
+.banner-text::-webkit-scrollbar {
+  width: 5px;
+}
+
+.banner-text::-webkit-scrollbar-track {
+  border: 1px solid #f59f00;
+  border-radius: 3px;
+}
+
+.banner-text::-webkit-scrollbar-thumb {
+  background: #f59f00;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.banner-text::-webkit-scrollbar-thumb:hover {
+  background: #d68d05;
+}
+
+.banner-text .banner-content {
+  font-size: 16px;
   margin-bottom: 30px;
 }
 
-/* .banner-body::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 93%;
-  height: 82%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #fff;
-} */
+.banner-text .banner-content .content-header {
+  display: block;
+  font-weight: 700;
+}
+.banner-text .banner-content .content-header:not(:first-child) {
+  margin-top: 15px;
+}
 
 .banner-left,
 .banner-right {
@@ -398,7 +416,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  bottom: 8vh;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -407,7 +425,7 @@
 }
 
 .inputs .input-fields {
-  flex: 1;
+  white-space: nowrap;
 }
 
 .inputs input:focus {
@@ -460,9 +478,6 @@
     font-size: 12px;
   }
   .button {
-    font-size: 16px;
-  }
-  .banner-text p {
     font-size: 16px;
   }
 }

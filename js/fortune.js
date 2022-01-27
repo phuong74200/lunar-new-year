@@ -42,8 +42,6 @@
     setTimeout(() => {
       banner.classList.add('open');
     }, 1000);
-
-    inputs.classList.add('fade');
   }
 
 
@@ -72,16 +70,18 @@
     inputYear.value = '';
   }
 
+
   btnShowBanner.addEventListener('click', async () => {
     let date = inputDate.value;
     let month = inputMonth.value;
     let year = inputYear.value;
+    inputs.classList.add('fade');
 
     if (isValidDate(+date, +month, +year)) {
       await shakeTag();
       await takeSentence();
     } else {
-      showBanner('Invalid date. Enter again');
+      showBanner('Ngày sinh không hợp lệ. Vui lòng nhập lại');
     };
   });
 
