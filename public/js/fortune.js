@@ -4,6 +4,8 @@
   const btnShowBanner = $('.button-fortune');
   const btnCloseBanner = $('.button-close');
   const banner = $('.banner');
+  const bannerContent = $('.banner-content');
+
   const vase = $('.vase');
   const vaseWrapper = $('.vase-wrapper');
   const tag = $('.tag-5');
@@ -11,6 +13,9 @@
   const inputDate = $('.input--date');
   const inputMonth = $('.input--month');
   const inputYear = $('.input--year');
+
+
+  const inputs = $('.inputs');
 
   const isValidDate = (day, month, year) => {
 
@@ -31,13 +36,12 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  const showBanner = () => {
+  const showBanner = (content = '') => {
+    bannerContent.textContent = content;
     banner.classList.add('show');
-  }
-
-
-  const openBanner = () => {
-    banner.classList.add('open');
+    setTimeout(() => {
+      banner.classList.add('open');
+    }, 1000);
   }
 
 
@@ -51,10 +55,7 @@
     tag.classList.add('tag-active');
     vaseWrapper.classList.add('zoom-in');
     await timeOut(4000);
-    showBanner();
-    setTimeout(() => {
-      openBanner();
-    }, 1000);
+    showBanner('Hello');
   }
 
   const closeAll = () => {
@@ -62,22 +63,25 @@
     banner.classList.remove('open');
     tag.classList.remove('tag-active');
     vaseWrapper.classList.remove('zoom-in');
+    inputs.classList.remove('fade');
 
     inputDate.value = '';
     inputMonth.value = '';
     inputYear.value = '';
   }
 
+
   btnShowBanner.addEventListener('click', async () => {
     let date = inputDate.value;
     let month = inputMonth.value;
     let year = inputYear.value;
+    inputs.classList.add('fade');
 
     if (isValidDate(+date, +month, +year)) {
       await shakeTag();
       await takeSentence();
     } else {
-      console.log("Invalid date");
+      showBanner('Ngày sinh không hợp lệ. Vui lòng nhập lại');
     };
   });
 

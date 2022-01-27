@@ -48,6 +48,8 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
             blossom.skew.set(1, blossom.skewX);
             blossom.skewX += blossom.skewS;
             blossom.rotation += blossom.sRotate;
+            blossom.width += blossom.sz || 0;
+            blossom.height += blossom.sz || 0;
 
             if (blossom.x > app.view.width * 2 || blossom.y > app.view.height * 2) {
                 blossom.destroy();
@@ -104,7 +106,7 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
             blossom.sy = sy;
 
             if (size < 30) {
-                blossom.parentGroup = layersDown[size - 1]  || layersDown[0];
+                blossom.parentGroup = layersDown[size - 1] || layersDown[0];
                 app.stage.addChild(blossom);
             } else {
                 blossom.parentGroup = layersUp[size - 50] || layersUp[0];
@@ -120,6 +122,7 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
             let sx = int(5, 40) / 10;
             let sy = int(5, 40) / 10;
+            let sz = (int(1, 20) == 10) ? Math.random() / 10 : 0;
 
             const skewX = int(180, 360) * PIXI.DEG_TO_RAD;
             const skewS = PIXI.DEG_TO_RAD * (int(2, 4) * Math.random()) / 5;
@@ -148,9 +151,10 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
             blossom.id = id;
             blossom.sx = sx;
             blossom.sy = sy;
+            blossom.sz = sz;
 
             if (size < 30) {
-                blossom.parentGroup = layersDown[size - 1]  || layersDown[0];
+                blossom.parentGroup = layersDown[size - 1] || layersDown[0];
                 app.stage.addChild(blossom);
             } else {
                 blossom.parentGroup = layersUp[size - 50] || layersUp[0];
@@ -182,34 +186,33 @@ const hScroll = () => {
         const anim = page.animate([
             { transform: `translateX(${vertical * 100}%)` }
         ], {
-            duration: 300,
+            duration: 500,
             fill: 'forwards',
         });
+        if (vertical > slides.length - 1) {
+            vertical = 0;
+            work();
+        }
         anim.onfinish = () => {
             ticking = false;
-            if (vertical > slides.length - 2) {
-                vertical = 0;
-                page.animate([
-                    { transform: `translateX(0%)` }
-                ], {
-                    duration: 0,
-                    fill: 'forwards',
-                });
-            }
         }
     }
 
     const scrollPage = (e) => {
-        vertical += e.deltaY / 100;
+        if (e.deltaY > 0) {
+            vertical++;
+        } else if (e.deltaY < 0) {
+            vertical--;
+        }
         work();
     }
 
-    document.getElementById('arrowLeft').addEventListener('mouseup', (e) => {
+    document.getElementById('arrowLeft').addEventListener('click', (e) => {
         vertical += 1;
         work();
     })
 
-    document.getElementById('arrowRight').addEventListener('mouseup', (e) => {
+    document.getElementById('arrowRight').addEventListener('click', (e) => {
         vertical -= 1;
         work();
     })

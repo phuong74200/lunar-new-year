@@ -6,6 +6,12 @@
 
     let nextYear = '2/1/2022';
 
+    const checkTime = new Date(nextYear).getTime() - new Date().getTime();
+
+    if(checkTime > 0) {
+        document.getElementById('countDown').style.display = 'block';
+    }
+
     const countDown = new Date(nextYear).getTime(),
         x = setInterval(function () {
 
@@ -19,6 +25,8 @@
 
             //do something later when date is reached
             if (distance < 0) {
+                document.getElementById('countDown').remove();
+                document.getElementById('happyNewYear').style.display = 'flex';
                 clearInterval(x);
             }
             //seconds
