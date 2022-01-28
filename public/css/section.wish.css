@@ -43,9 +43,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
     gap: 20px;
-    transform: translateY(-25vh);
     z-index: 0;
     pointer-events: none;
 }

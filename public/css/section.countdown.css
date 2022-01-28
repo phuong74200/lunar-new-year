@@ -20,6 +20,8 @@
 }
 
 .container {
+    -webkit-box-decoration-break: clone;
+    display: inline;
     width: auto;
     height: auto;
     margin: 0 auto;
