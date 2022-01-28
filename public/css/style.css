@@ -7,8 +7,13 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     margin: 0 auto;
     overflow: hidden;
     font-family: "Popins", sans-serif;
+    overflow: hidden;
 }

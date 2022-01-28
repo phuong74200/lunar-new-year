@@ -255,11 +255,11 @@ const hScroll = () => {
         if (Math.abs(xDiff) > Math.abs(yDiff)) {
             if (xDiff > 0) {
                 /* right swipe */
-                vertical -= 1;
+                vertical += 1;
                 work();
             } else {
                 /* left swipe */
-                vertical += 1;
+                vertical -= 1;
                 work();
             }
         } else {
