@@ -57,7 +57,7 @@
     bannerContentLove.textContent = fortune.love;
     bannerContentCareer.textContent = fortune.career;
     bannerContentMoney.textContent = fortune.money;
-    lNumber.textContent = fortune.number;
+    lNumber.textContent = `Con số vận mệnh của bạn trong năm 2022 là ${fortune.number}`;
 
     banner.classList.add('show');
     setTimeout(() => {
