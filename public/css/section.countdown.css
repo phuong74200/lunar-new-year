@@ -3,6 +3,10 @@
     --smaller: 0.5;
 }
 
+#countDown {
+    display: none;
+}
+
 .count-down {
     align-items: center;
     background-color: transparent;
@@ -16,10 +20,11 @@
 }
 
 .container {
+    width: auto;
+    height: auto;
     margin: 0 auto;
     text-align: center;
     position: absolute;
-    z-index: 90;
     background-image: url('../assets/text-clip.jpg');
     background-size: cover;
     background-clip: text;

@@ -1,4 +1,3 @@
 git add .
 git commit -m "deploy"
-git push heroku master
-heroku logs --tail
+git push heroku HEAD:master --force
