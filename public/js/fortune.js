@@ -3,8 +3,16 @@
 
   const btnShowBanner = $('.button-fortune');
   const btnCloseBanner = $('.button-close');
+
   const banner = $('.banner');
+  const bannerText = $('.banner-text');
+
   const bannerContent = $('.banner-content');
+  const bannerError = $('.banner-error');
+
+  const bannerContentLove = $('.content-love');
+  const bannerContentCareer = $('.content-career');
+  const bannerContentMoney = $('.content-money');
 
   const vase = $('.vase');
   const vaseWrapper = $('.vase-wrapper');
@@ -14,10 +22,15 @@
   const inputMonth = $('.input--month');
   const inputYear = $('.input--year');
 
+  const lNumber = $('#lNumber');
 
   const inputs = $('.inputs');
 
   const isValidDate = (day, month, year) => {
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      return false;
+    }
 
     if (year < 1000 || year > new Date().getFullYear() || month <= 0 || month > 12) {
       return false;
@@ -36,14 +49,34 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  const showBanner = (content = '') => {
-    bannerContent.textContent = content;
+  const showBanner = (fortune) => {
+
+    bannerContent.classList.remove('fade');
+    bannerError.classList.add('fade');
+
+    bannerContentLove.textContent = fortune.love;
+    bannerContentCareer.textContent = fortune.career;
+    bannerContentMoney.textContent = fortune.money;
+    lNumber.textContent = fortune.number;
+
     banner.classList.add('show');
     setTimeout(() => {
       banner.classList.add('open');
     }, 1000);
   }
 
+  const showBannerError = (error = 'Đã có lỗi xảy ra. Vui lòng nhập lại') => {
+
+    bannerContent.classList.add('fade');
+    bannerError.classList.remove('fade');
+
+    bannerError.textContent = error;
+
+    banner.classList.add('show');
+    setTimeout(() => {
+      banner.classList.add('open');
+    }, 1000);
+  }
 
   const shakeTag = async () => {
     vase.classList.add('shake');
@@ -51,14 +84,14 @@
     vase.classList.remove('shake');
   }
 
-  const takeSentence = async () => {
+  const takeTag = async () => {
     tag.classList.add('tag-active');
     vaseWrapper.classList.add('zoom-in');
     await timeOut(4000);
-    showBanner('Hello');
   }
 
   const closeAll = () => {
+
     banner.classList.remove('show');
     banner.classList.remove('open');
     tag.classList.remove('tag-active');
@@ -70,6 +103,22 @@
     inputYear.value = '';
   }
 
+  // get fortune
+
+  const getFortune = async (date) => {
+    const URL = '/api/prophecies';
+    const settings = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ date: date })
+    }
+
+    const fetchResponse = await fetch(URL, settings);
+    return fetchResponse.json();
+  }
+
 
   btnShowBanner.addEventListener('click', async () => {
     let date = inputDate.value;
@@ -77,16 +126,34 @@
     let year = inputYear.value;
     inputs.classList.add('fade');
 
+    console.log(isValidDate(+date, +month, +year));
+
     if (isValidDate(+date, +month, +year)) {
+
+      let dateString = date + '/' + month + '/' + year;
+
+      console.log(+date, +month, +year);
+
       await shakeTag();
-      await takeSentence();
+      await takeTag();
+
+      getFortune(dateString).then(data => {
+        const { career, love, money, number } = data.status;
+        showBanner({ career, love, money, number });
+      }).catch(err => showBannerError('Đã có lỗi xảy ra. Vui lòng nhập lại'));
+
     } else {
-      showBanner('Ngày sinh không hợp lệ. Vui lòng nhập lại');
+      showBannerError('Ngày sinh không hợp lệ. Vui lòng nhập lại');
     };
+
   });
 
   btnCloseBanner.addEventListener('click', () => {
     closeAll();
+  });
+
+  bannerText.addEventListener('mousewheel', (event) => {
+    event.stopPropagation();
   })
 
 })();

@@ -347,25 +347,19 @@
                         </div>
                         <div class="banner-body">
                             <div class="banner-text">
+                                <p class="banner-error"></p>
                                 <p class="banner-content">
-                                    <span class="content-header">Love</span>
-                                    <span class="content-love"
-                                        >Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Doloribus,
-                                        ipsam?</span
+                                    <span id="lNumber"></span>
+                                    <span class="content-header"
+                                        >Tình duyên</span
                                     >
-                                    <span class="content-header">Career</span>
-                                    <span class="content-career"
-                                        >Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Doloribus,
-                                        ipsam?</span
+                                    <span class="content-love"></span>
+                                    <span class="content-header"
+                                        >Sự nghiệp</span
                                     >
-                                    <span class="content-header">Money</span>
-                                    <span class="content-money"
-                                        >Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Doloribus,
-                                        ipsam?</span
-                                    >
+                                    <span class="content-career"></span>
+                                    <span class="content-header">Tiền tài</span>
+                                    <span class="content-money"></span>
                                 </p>
                                 <button class="button button-close">
                                     Close
@@ -406,50 +400,51 @@
             </div>
             <div class="h-scroll">
                 <div class="backdrop">
-                    <div class="love-msg">
-                        <h4 class="give effect-shine">Cho đi là còn mãi </h4>
-                        <p>Hãy gửi lời chúc tốt đẹp đến mọi người và nhận được một lời chúc khác nhé!</p>
-                    </div>
-                    <div class="brand">
-                    <div class="logo"> <img src="./assets/2022.png" alt="2022"></div>
-                        <div class="tiger-1"><img src="./assets/tiger-1.png" alt="./assets/tiger"></div>
+                    <div class="header-container">
+                        <div class="love-msg">
+                            <h4 class="give effect-shine"></h4>
+                        </div>
+                        <div class="brand">
+                            <div class="logo">
+                                <img src="./assets/2022.png" alt="2022" />
+                            </div>
+                            <div class="tiger">
+                                <img src="./assets/tiger-1.png" alt="tiger" />
+                            </div>
+                        </div>
                     </div>
                     <div class="content">
-                        <form>
-                            <button class="send-btn" type="submit">Send</button>
-                            <input id="input_name" type="text" placeholder="Tên của bạn">
-                            <input id="input_msg" type="text">
+                        <form class="form">
+                            <textarea
+                                id="input_msg"
+                                placeholder="Hãy gửi lời chúc tốt đẹp đến mọi người và nhận được một lời chúc khác nhé!"
+                            ></textarea>
+                            <button
+                                class="send-btn"
+                                type="submit"
+                                id="submitBtn"
+                            >
+                                Gửi lời chúc
+                            </button>
                         </form>
                     </div>
-                    <section class="sticky">
-                        <div class="bubbles">
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                        </div>
-                    </section>
-                    </div>
                     <div class="letter displayNone">
-                    <div class="envelope">
-                        <div class="envelope-flap"></div>
-                        <div class="envelope-paper"></div>
-                        <div class="envelope-detail"></div>
-                    </div>
-                    <div class="paper">
-                        <div class="paper-content">
-                            <div class="paper-close">x</div>
-                            <Hey>Xin chào,</br></br>Have a good day!</br></br>Lời chúc được gửi lại</Hey>
+                        <div class="envelope">
+                            <div class="envelope-flap"></div>
+                            <div class="envelope-paper"></div>
+                            <div class="envelope-detail"></div>
+                            <div class="paper">
+                                <div class="paper-close">x</div>
+                                <div class="paper-content">
+                                    <Hey>
+                                        Fuong say hello to you =)) Fuong say hello to you =)) Fuong say hello to you =)) Fuong say hello to you =)) Fuong say hello to you =))
+                                    </Hey>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="overlay displayNone"></div>
                 </div>
-                <div class="overlay displayNone"></div>
             </div>
         </div>
     </body>

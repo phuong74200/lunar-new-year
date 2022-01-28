@@ -8,7 +8,7 @@ canvas {
     left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 4;
+    z-index: 7;
 }
 
 .h-scroll {
@@ -46,7 +46,7 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 7;
+    z-index: 8;
 }
 
 .fence {
@@ -130,6 +130,7 @@ canvas {
 .lantern--big {
     width: auto;
     position: absolute;
+    pointer-events: none;
 }
 
 .lantern--big img {
@@ -331,6 +332,10 @@ canvas {
     .fence img {
         object-fit: contain;
         max-width: 100%;
+    }
+
+    .slide-btn {
+        opacity: 0.5;
     }
 }
 

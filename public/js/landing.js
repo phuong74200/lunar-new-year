@@ -2,11 +2,11 @@ const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 ; (function () {
     let app = new PIXI.Application({ resizeTo: document.getElementById('round'), transparent: true });
-    let upLayer = new PIXI.Application({ resizeTo: document.getElementById('round'), transparent: true });
+    let upLayer = new PIXI.Application({ resizeTo: window, transparent: true });
     upLayer.view.className = 'upLayer';
 
     document.getElementById('round').appendChild(app.view);
-    document.getElementById('round').appendChild(upLayer.view);
+    document.body.appendChild(upLayer.view);
 
     const texture = PIXI.Texture.from('../assets/Untitled-1-15.png');
     const texture_1 = PIXI.Texture.from('../assets/Untitled-1-16.png');
@@ -208,12 +208,12 @@ const hScroll = () => {
     }
 
     document.getElementById('arrowLeft').addEventListener('click', (e) => {
-        vertical += 1;
+        vertical--;
         work();
     })
 
     document.getElementById('arrowRight').addEventListener('click', (e) => {
-        vertical -= 1;
+        vertical++;
         work();
     })
 

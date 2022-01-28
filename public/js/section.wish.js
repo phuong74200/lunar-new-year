@@ -21,11 +21,29 @@ document.querySelector('.paper-close').addEventListener('click', function () {
     }, 600);
 });
 
-
 document.querySelector('.content').addEventListener('submit', event => {
     event.preventDefault();
     document.querySelector('.overlay').classList.remove('displayNone');
     setTimeout(function () {
         document.querySelector('.letter').classList.remove('displayNone');
     }, 600);
+})
+
+document.getElementById('submitBtn').addEventListener('click', (e) => {
+    const content = document.getElementById('input_msg').value;
+    if (content.trim()) {
+        fetch('/api/wishes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: content })
+        }).then(response => response.json()).then(result => {
+            if(result.code == 200) {
+                document.getElementById('reponse').textContent = result.message;
+            } else {
+                document.getElementById('reponse').textContent = 'Chúc bạn một năm mới vui vẻ!';
+            }
+        })
+    }
 })

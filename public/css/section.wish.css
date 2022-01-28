@@ -1,113 +1,122 @@
-.section-wish {
-    position: absolute;
-    z-index: 999;
+.logo,
+.tiger {
+    width: 100%;
 }
-
+.backdrop img {
+    max-width: 100%;
+}
 .backdrop {
+    font-size: 62.5%;
     background-color: transparent;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.backdrop * {
+    transition: 0.3s;
+    box-sizing: border-box;
 }
 .backdrop .love-msg {
-    padding: 50px 30px;
+    font-size: 1.6em;
+    font-family: "Open sans", Arial, sans-serif;
     text-align: center;
     color: #fbb139;
 }
-.backdrop .love-msg h4 {
-    font-size: 30px;
-    padding: 10px;
+.backdrop .love-msg h1 {
+    display: block;
+    height: 43px !important;
 }
-.backdrop .brand {
+.love-msg p {
+    padding: 0 20%;
+}
+.header-container {
     width: 100%;
     height: auto;
-    padding: 0 10px;
-    text-align: center;
-    position: relative;
-}
-.backdrop .brand .logo {
-    width: 85%;
-    margin: 0 auto;
-}
-.backdrop .brand .logo img {
-    background-size: cover;
-    width: 100%;
-}
-.backdrop .brand .tiger-1 {
-    width: 32%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: absolute;
-    left: 22%;
-    top: -1%;
+    gap: 20px;
+    transform: translateY(-25vh);
+    z-index: 0;
+    pointer-events: none;
+}
+.backdrop .brand {
+    position: relative;
+    width: 90vw;
+    max-width: 700px;
+    z-index: 0;
+}
+.backdrop .brand .tiger {
+    position: absolute;
+    top: -8%;
+    left: 12%;
+    width: auto;
+    height: 100%;
     animation: tilt-shaking 0.3s infinite;
 }
-.backdrop .brand .tiger-1 img {
-    background-size: cover;
-    width: 100%;
+.backdrop .brand .tiger img {
+    max-height: 100%;
 }
 .backdrop .send-button {
-    padding: 20px 10px;
     position: absolute;
     z-index: 1;
     left: 250px;
     font-size: 40px;
+    color: #fbb139;
     opacity: 0.7;
 }
 .backdrop .content {
     max-width: 480px;
-    margin: 0 auto;
-    position: absolute;
-    z-index: 2;
-    left: 200px;
+    z-index: 1;
 }
 .backdrop .content form .send-btn {
-    padding: 50px 10px;
-    width: 70px;
-    float: right;
-    border: none;
-    border: solid 1px rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 12pt;
-    text-align: center;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-    color: #002e40;
-}
-.backdrop .content form .send-btn :hover {
-    border-color: #ffffff;
-    background: #ffffff;
-    color: #002e40;
-}
-.backdrop .content form #input_name {
-    min-height: 50px;
-    width: 400px;
-    border: solid 1px rgba(255, 255, 255, 0.8);
-    padding: 10px 25px;
-    color: #002e40;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 25px 0 0 0;
-    font-size: 11pt;
-}
-.backdrop .content form #input_msg {
-    width: 400px;
-    border: solid 1px rgba(255, 255, 255, 0.8);
-    color: #002e40;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 11pt;
+    background: linear-gradient(to right, #cc232a, #f51c1c, #cc232a);
     font-size: 18px;
-    border-radius: 0 0 0 25px;
-    min-height: 68px;
-    height: 40px;
-    border-top: none;
-    margin-top: 2px;
-    padding-left: 16px;
-    padding-right: 34px;
+    color: #ffd84b;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 0 25px 25px;
+    max-width: 400px;
+    width: 90vw;
+    padding: 16px;
+    outline-offset: -5px;
+    outline: 1px solid #f59f00;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
 }
 
-#input_name:hover {
-    border-color: #ffffff;
-    background: #ffffff;
-    color: #002e40;
+.backdrop .content form #input_msg {
+    border: solid 1px rgba(255, 255, 255, 0.8);
+    border-radius: 25px 25px 0 0;
+    background: linear-gradient(to right, #cc232a, #f51c1c, #cc232a);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    height: 120px;
+    border: 2px solid #ffd84b;
+    font-weight: 500;
+    color: #ffd84b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    cursor: text;
+    padding: 16px;
+    outline: none;
+    resize: none;
+}
+
+#input_msg::placeholder {
+    color: #F2888B;
 }
 
 .send-btn:active {
@@ -117,106 +126,43 @@
     box-shadow: none;
 }
 
-.bubbles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    top: 0;
-    left: 0;
+@keyframes tilt-shaking {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0eg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
-
-.bubble {
-    position: absolute;
-    bottom: -100px;
-    width: 40px;
-    height: 40px;
-    background: #f1f1f1;
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: rise 1s infinite ease-in;
+@media only screen and (max-width: 840px) {
+    .backdrop .love-msg {
+        padding-bottom: 10px;
+    }
 }
-
-.bubble:nth-child(1) {
-    width: 12px;
-    height: 12px;
-    left: 10%;
-    animation-duration: 8s;
+@media only screen and (max-width: 840px) {
+    .backdrop .love-msg h1 {
+        height: 86px !important;
+        font-size: 18pt;
+    }
 }
-
-.bubble:nth-child(2) {
-    width: 6px;
-    height: 6px;
-    left: 20%;
-    animation-duration: 5s;
-    animation-delay: 0s;
+@media only screen and (max-height: 576px) {
+    .backdrop {
+        justify-content: flex-end;
+    }
+    .content {
+        position: absolute;
+        bottom: 20px;
+    }
 }
-
-.bubble:nth-child(3) {
-    width: 15px;
-    height: 15px;
-    left: 35%;
-    animation-duration: 7s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(4) {
-    width: 24px;
-    height: 24px;
-    left: 50%;
-    animation-duration: 11s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(5) {
-    width: 10.5px;
-    height: 10.5px;
-    left: 55%;
-    animation-duration: 6s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(6) {
-    width: 13.5px;
-    height: 13.5px;
-    left: 65%;
-    animation-duration: 8s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(7) {
-    width: 27px;
-    height: 27px;
-    left: 70%;
-    animation-duration: 12s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(8) {
-    width: 7.5px;
-    height: 7.5px;
-    left: 80%;
-    animation-duration: 6s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(9) {
-    width: 4.5px;
-    height: 4.5px;
-    left: 70%;
-    animation-duration: 5s;
-    animation-delay: 0s;
-}
-
-.bubble:nth-child(10) {
-    width: 27px;
-    height: 27px;
-    left: 25%;
-    animation-duration: 10s;
-    animation-delay: 0s;
-}
-
 @keyframes rise {
     0% {
         bottom: -100px;
@@ -294,33 +240,31 @@
 }
 @keyframes wiggle {
     0% {
-        transform: translateY(310px) rotate(0);
+        transform: rotate(0);
     }
     25% {
-        transform: translateY(310px) rotate(2deg);
+        transform: rotate(2deg);
     }
     50% {
-        transform: translateY(310px) rotate(0deg);
+        transform: rotate(0deg);
     }
     75% {
-        transform: translateY(310px) rotate(-2deg);
+        transform: rotate(-2deg);
     }
     100% {
-        transform: translateY(310px) rotate(0);
+        transform: rotate(0);
     }
 }
 .letter {
-    margin: 150px auto;
-    max-width: 350px;
-    height: 375px;
-    overflow: hidden;
-    display: block;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .letter--open .paper {
@@ -355,13 +299,12 @@
 
 .paper {
     height: 50px;
-    width: 90px;
+    min-width: 300px;
     background: #f1f0c3;
-    transform: translateY(250px);
     margin: 0 auto;
     transition: transform 0.3s 0.1s ease;
     border-radius: 2px;
-    position: relative;
+    position: absolute;
 }
 
 .envelope {
@@ -374,7 +317,6 @@
     cursor: pointer;
     border-radius: 3px;
     transition: box-shadow 0.3s ease;
-    transform: translateY(310px);
     animation: wiggle 0.3s 0.2s infinite;
 }
 .envelope:hover {

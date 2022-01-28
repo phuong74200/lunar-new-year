@@ -4,7 +4,7 @@ const Prophecy = require('../models/prophecySchema');
 const getNumber = require('../validators/getNumber');
 
 router.post('/', async (req, res) => {
-    
+
     // let prophecy = new Prophecy({
     //     index: (await Prophecy.find().count()) + 1,
     //     love: req.body.love,
@@ -21,18 +21,19 @@ router.post('/', async (req, res) => {
 
     let numerology = getNumber.calNumerology(req.body.date);
     try {
-        let prophecy = await Prophecy.findOne({index: numerology});
+        let prophecy = await Prophecy.findOne({ index: numerology });
         res.json({
             success: true,
             status: {
                 code: 200,
+                number: prophecy.index,
                 love: prophecy.love,
                 career: prophecy.career,
                 money: prophecy.money
             }
         });
     }
-    catch(err) {
+    catch (err) {
         res.send(err.errors);
     }
 });
