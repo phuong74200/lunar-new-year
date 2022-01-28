@@ -1,6 +1,7 @@
 const int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 ; (function () {
+    window.scrollTo(0, 1);
     let app = new PIXI.Application({ resizeTo: document.getElementById('round'), transparent: true });
     let upLayer = new PIXI.Application({ resizeTo: window, transparent: true });
     upLayer.view.className = 'upLayer';
