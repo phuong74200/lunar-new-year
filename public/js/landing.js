@@ -174,7 +174,7 @@ const hScroll = () => {
     const slides = document.getElementsByClassName('h-scroll');
 
     [...slides].forEach((elm, index) => {
-        elm.style.transform = `translateX(-${(index) * 100}%)`;
+        elm.style.transform = `translateX(${(index) * 100}%)`;
     })
 
     const page = document.getElementById('page')
@@ -184,7 +184,7 @@ const hScroll = () => {
             vertical = 0;
         }
         const anim = page.animate([
-            { transform: `translateX(${vertical * 100}%)` }
+            { transform: `translateX(-${vertical * 100}%)` }
         ], {
             duration: 500,
             fill: 'forwards',
