@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
         success: true,
         status: {
             code: 200,
-            message: randomWish.message
+            message: randomWish ? randomWish.message : 'chúc bạn năm mới vui vẻ'
         }
     });
 });

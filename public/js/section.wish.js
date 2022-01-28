@@ -15,6 +15,7 @@ document.querySelector('.paper-close').addEventListener('click', function () {
     document.querySelector('.letter').classList.remove('letter--open');
     document.querySelector('.letter').classList.add('letter--close');
     setTimeout(function () {
+        console.log('closed')
         document.querySelector('.letter').classList.remove('letter--close');
         document.querySelector('.overlay').classList.add('displayNone');
         document.querySelector('.letter').classList.add('displayNone');
@@ -39,11 +40,13 @@ document.getElementById('submitBtn').addEventListener('click', (e) => {
             },
             body: JSON.stringify({ message: content })
         }).then(response => response.json()).then(result => {
-            if(result.code == 200) {
-                document.getElementById('reponse').textContent = result.message;
+            if(result.success) {
+                document.getElementById('reponsedWish').textContent = result.status.message;
             } else {
-                document.getElementById('reponse').textContent = 'Chúc bạn một năm mới vui vẻ!';
+                document.getElementById('reponsedWish').textContent = 'Chúc bạn một năm mới vui vẻ!';
             }
         })
+    } else {
+        document.getElementById('reponsedWish').textContent = 'Chúc bạn một năm mới vui vẻ!';
     }
 })
