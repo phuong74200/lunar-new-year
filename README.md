@@ -22,16 +22,16 @@ npm index
 <p>
     The webpage will start at: <a href="http://localhost:3000/">localhost:3000</a>
 </p>
+<h2>Features</h2>
+<ul>
+    <li>Countdown to the Lunar New Year</li>
+    <li>Fortune picking</li>
+    <li>Give wish and receive wish</li>
+</ul>
 <h2>Contributors</h2>
 <ul>
     <li><a href="https://github.com/phuong74200">phuong74200</a></li>
     <li><a href="https://github.com/lengocson131002">lengocson131002</a></li>
     <li><a href="https://github.com/viettien1602">viettien1602</a></li>
     <li><a href="https://github.com/zhangliejunjie">truongletuankiet</a></li>
-</ul>
-<h2>Features</h2>
-<ul>
-    <li>Countdown to the Lunar New Year</li>
-    <li>Fortune picking</li>
-    <li>Give wish and receive wish</li>
 </ul>
