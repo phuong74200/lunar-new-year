@@ -1,8 +1,7 @@
 <h1>LUNAR NEW YEAR PAGE</h1>
 <h2>About The Project</h2>
 <p>
-    A website to welcome Lunar New Year 2022
-    Welcoming the Year of the Tiger
+    A website to welcome Lunar New Year 2022. Welcoming the Year of the Tiger
 </p>
 <img src=".github/countdown.jpeg" alt="countdown"/>
 <img src=".github/fortune_2.jpeg" alt="fortune"/>
@@ -19,8 +18,8 @@
 <h2>Getting Started</h2>
 <pre>
     <code>
-        npm install
-        npm index
+npm install
+npm index
     </code>
 </pre>
 <p>
