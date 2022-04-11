@@ -17,10 +17,8 @@
 </ul>
 <h2>Getting Started</h2>
 <pre>
-    <code>
-npm install
-npm index
-    </code>
+    <code>npm install
+npm index</code>
 </pre>
 <p>
     The webpage will start at: <a href="http://localhost:3000/">localhost:3000</a>
