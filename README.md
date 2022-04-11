@@ -16,8 +16,7 @@
     <li>ExpressJS</li>
 </ul>
 <h2>Getting Started</h2>
-<pre><code>
-npm install
+<pre><code>npm install
 npm index
 </code></pre>
 <p>
