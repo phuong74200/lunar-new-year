@@ -14,6 +14,7 @@
     <li>CSS</li>
     <li>NodeJS</li>
     <li>ExpressJS</li>
+    <li>MongoDB</li>
 </ul>
 <h2>Getting Started</h2>
 <pre><code>npm install
